@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Round #1</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" > 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style/face-detection.css">   
+    <link rel="stylesheet" href="style/portal.css">
+    <link rel="stylesheet" href="style/popup.css">
+    <link rel="stylesheet" href="style/header.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src='js/face-api.min.js'></script>
+    <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+</head>
+<body>
+        <main>
+            <div class="popup-container" id="popup">
+                <div class="popup-box">
+                    <h2 id="popup-text">Welcome</h2>
+                    <div class="links">
+                      <a class="close-btn" id="popup-link">Ok</a>
+                    </div>
+                </div>
+              </div>
+              <div class="popup-container" id="popup-alert">
+                <div class="popup-box">
+                    <h2 id="popup-text">You have unsolved or flagged questions. Are you sure you want to submit?</h2>
+                    <div class="buttons">
+                      <button id="close-btn">Cancel</button>
+                      <button id="confirm-submit">Submit anyway</button>
+                    </div>
+                </div>
+              </div>
+              <section class="dots-container" id="loading">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </section>
+              <header>
+                <div class="head">
+                  <img src="imgs/brain blitz logo.jpg" alt="">
+                  <h1>BRAIN-BLITZ<br><span>COMPETITION</span></h1>
+                </div>
+                <p class="time-remaining">Time Remaining: <span id="count-down"></span></p>
+              </header>
+              <div class="portal-container">
+                <div class="left">
+                  <form class="input-groups" id="portal-form">
+                    <div class="input-field" style="margin-top: 0;"  >
+                      <div class="left-group">
+                        <h4>Question<br>#1</h4>
+                        <button id="flgq1">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q1" value="q1a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q1" value="q1c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q1" value="q1b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q1" value="q1d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field">
+                      <div class="left-group">
+                        <h4>Question<br>#2</h4>
+                        <button id="flgq2">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q2" value="q2a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q2" value="q2c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q2" value="q2b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q2" value="q2d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#3</h4>
+                        <button id="flgq3">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q3" value="q3a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q3" value="q3c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q3" value="q3b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q3" value="q3d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#4</h4>
+                        <button id="flgq4">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q4" value="q4a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q4" value="q4c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q4" value="q4b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q4" value="q4d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#5</h4>
+                        <button id="flgq5">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q5" value="q5a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q5" value="q5c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q5" value="q5b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q5" value="q5d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#6</h4>
+                        <button id="flgq6">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q6" value="q6a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q6" value="q6c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q6" value="q6b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio" name="q6" value="q6d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#7</h4>
+                        <button id="flgq7">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q7" value="q7a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q7" value="q7c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q7" value="q7b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q7" value="q7d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#8</h4>
+                        <button id="flgq8">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q8" value="q8a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q8" value="q8c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q8" value="q8b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q8" value="q8d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#9</h4>
+                        <button id="flgq9">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q9" value="q9a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q9" value="q9c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q9" value="q9b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q9" value="q9d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#10</h4>
+                        <button id="flgq10">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q10" value="q10a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q10" value="q10c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q10" value="q10b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q10" value="q10d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#11</h4>
+                        <button id="flgq11">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q11" value="q11a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q11" value="q11c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q11" value="q11b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q11" value="q11d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#12</h4>
+                        <button id="flgq12">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q12" value="q12a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q12" value="q12c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q12" value="q12b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q12" value="q12d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#13</h4>
+                        <button id="flgq13">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q13" value="q13a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q13" value="q13c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q13" value="q13b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q13" value="q13d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#14</h4>
+                        <button id="flgq14">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q14" value="q14a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q14" value="q14c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q14" value="q14b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q14" value="q14d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#15</h4>
+                        <button id="flgq15">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q15" value="q15a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q15" value="q15c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q15" value="q15b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q15" value="q15d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#16</h4>
+                        <button id="flgq16">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q16" value="q16a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q16" value="q16c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q16" value="q16b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q16" value="q16d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#17</h4>
+                        <button id="flgq17">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q17" value="q17a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q17" value="q17c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q17" value="q17b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q17" value="q17d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#18</h4>
+                        <button id="flgq18">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q18" value="q18a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q18" value="q18c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q18" value="q18b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q18" value="q18d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#19</h4>
+                        <button id="flgq19">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q19" value="q19a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q19" value="q19c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q19" value="q19b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q19" value="q19d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#20</h4>
+                        <button id="flgq20">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q20" value="q20a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q20" value="q20c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q20" value="q20b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q20" value="q20d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#21</h4>
+                        <button id="flgq21">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q21" value="q21a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q21" value="q21c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q21" value="q21b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q21" value="q21d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#22</h4>
+                        <button id="flgq22">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q22" value="q22a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q22" value="q22c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q22" value="q22b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q22" value="q22d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#23</h4>
+                        <button id="flgq23">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q23" value="q23a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q23" value="q23c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q23" value="q23b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q23" value="q23d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#24</h4>
+                        <button id="flgq24">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q24" value="q24a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q24" value="q24c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q24" value="q24b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q24" value="q24d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#25</h4>
+                        <button id="flgq25">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q25" value="q25a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q25" value="q25c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q25" value="q25b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q25" value="q25d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#26</h4>
+                        <button id="flgq26">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q26" value="q26a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q26" value="q26c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q26" value="q26b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q26" value="q26d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#27</h4>
+                        <button id="flgq27">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q27" value="q27a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q27" value="q27c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q27" value="q27b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q27" value="q27d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#28</h4>
+                        <button id="flgq28">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q28" value="q28a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q28" value="q28c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q28" value="q28b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q28" value="q28d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#29</h4>
+                        <button id="flgq29">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q29" value="q29a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q29" value="q29c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q29" value="q29b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q29" value="q29d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#30</h4>
+                        <button id="flgq30">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q30" value="q30a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q30" value="q30c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q30" value="q30b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q30" value="q30d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#31</h4>
+                        <button id="flgq31">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q31" value="q31a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q31" value="q31c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q31" value="q31b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q31" value="q31d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#32</h4>
+                        <button id="flgq32">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q32" value="q32a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q32" value="q32c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q32" value="q32b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q32" value="q32d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#33</h4>
+                        <button id="flgq33">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q33" value="q33a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q33" value="q33c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q33" value="q33b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q33" value="q33d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#34</h4>
+                        <button id="flgq34">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q34" value="q34a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q34" value="q34c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q34" value="q34b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q34" value="q34d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#35</h4>
+                        <button id="flgq35">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q35" value="q35a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q35" value="q35c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q35" value="q35b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q35" value="q35d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#36</h4>
+                        <button id="flgq36">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q36" value="q36a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q36" value="q36c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q36" value="q36b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q36" value="q36d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#37</h4>
+                        <button id="flgq37">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q37" value="q37a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q37" value="q37c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q37" value="q37b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q37" value="q37d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#38</h4>
+                        <button id="flgq38">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q38" value="q38a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q38" value="q38c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q38" value="q38b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q38" value="q38d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#39</h4>
+                        <button id="flgq39">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q39" value="q39a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q39" value="q39c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q39" value="q39b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q39" value="q39d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#40</h4>
+                        <button id="flgq40">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q40" value="q40a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q40" value="q40c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q40" value="q40b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q40" value="q40d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#41</h4>
+                        <button id="flgq41">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q41" value="q41a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q41" value="q41c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q41" value="q41b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q41" value="q41d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#42</h4>
+                        <button id="flgq42">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q42" value="q42a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q42" value="q42c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q42" value="q42b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q42" value="q42d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#43</h4>
+                        <button id="flgq43">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q43" value="q43a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q43" value="q43c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q43" value="q43b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q43" value="q43d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#44</h4>
+                        <button id="flgq44">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q44" value="q44a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q44" value="q44c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q44" value="q44b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q44" value="q44d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-field"  >
+                      <div class="left-group">
+                        <h4>Question<br>#45</h4>
+                        <button id="flgq45">Flag Question</button>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, reprehenderit aperiam sunt corporis commodi eveniet quo? Rerum beatae mollitia blanditiis maxime ducimus voluptatibus temporibus totam porro ea dignissimos exercitationem nemo aut, libero eius magnam corrupti quo aperiam! Nesciunt consequatur dolore architecto, fugit temporibus possimus exercitationem itaque obcaecati eaque qui! Modi?</label>
+                        <div class="custom-radio-group">
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q45" value="q45a"   />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">A) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q45" value="q45c" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">C) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                          <div class="row">
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q45" value="q45b" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">B) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                            <label class="custom-radio-container">
+                              <input type="radio"  name="q45" value="q45d" />
+                              <span class="custom-radio-checkmark"></span>
+                              <span class="custom-radio-text">D) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, necessitatibus.</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  
+                    
+      
+                    <div class="input-field">
+                      <div class="left-group">
+                        <h4>End of<br>Questions</h4>
+                      </div>
+                      <div class="right-group">
+                        <label for="">- WARNING: YOU WILL NOT BE ABLE TO CHANGE THE ANSWERS AFTER SUBMITTING</label><br>
+                        <button type="submit" id="submit-portal">Submit Answers</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="right">
+                   <h2>Questions</h2>
+                   <div class="questions">
+                      <div class="question" id="q1state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #1</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q2state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #2</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q3state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #3</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q4state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #4</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q5state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #5</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q6state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #6</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q7state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #7</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q8state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #8</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q9state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #9</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q10state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #10</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q11state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #11</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q12state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #12</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q13state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #13</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q14state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #14</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q15state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #15</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q16state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #16</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q17state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #17</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q18state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #18</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q19state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #19</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q20state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #20</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q21state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #21</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q22state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #22</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q23state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #23</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q24state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #24</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q25state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #25</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q26state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #26</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q27state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #27</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q28state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #28</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q29state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #29</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q30state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #30</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q31state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #31</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q32state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #32</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q33state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #33</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q34state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #34</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q35state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #35</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q36state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #36</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q37state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #37</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q38state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #38</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q39state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #39</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q40state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #40</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q41state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #41</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q42state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #42</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q43state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #43</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q44state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #44</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                      <div class="question" id="q45state">
+                        <h3><span><i class="fa-solid fa-check solved-icon"></i> Question #45</span><i class="fa-regular fa-flag flagged-icon"></i></h3>
+                      </div>
+                   </div>
+                   <button class="button" id="submit-early">Submit early</button>
+                   <h4 id="flagged-warning">Wanring: You have flagged Questions:</h4>
+                   <h4 id="unsolved-warning">Wanring: You have Unsolved Questions:</h4>
+                </div>
+              </div>
+            <div class="container mt-1">
+                <div class="row">
+                    
+                    <div class="col-12 col-md-8 col-xl-9 align-top" id="webcam-container">
+                        <div class="loading d-none">
+                                Loading Model
+                                <div class="spinner-border" role="status">
+                                        <span class="sr-only"></span>
+                                </div>
+                        </div>
+                        
+                        <div id="video-container">
+                                <video id="webcam" autoplay muted playsinline></video>
+                        </div>  
+                        
+                    </div>
+                </div>
+            </div>
+        </main>   
+        <script src="js/face-detection.js"></script>
+        <script type="module" src="js/portal.js"></script>
+</body>
+</html>

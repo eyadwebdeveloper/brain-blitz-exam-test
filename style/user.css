@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+:root{
+    --default-back: #fff;
+    --default-text: #000;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background:  url('../imgs/grid_background.png') no-repeat ;
+}
+
+.wrapper{
+    background: var(--default-back);
+    position: relative;
+    border-radius: 20px;
+    padding: 30px;
+    overflow: hidden;  
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-top: 120px;
+}
+@media only screen and (max-width: 550px){
+    .wrapper{
+        box-shadow: none;
+    }
+}
+
+.form-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: 1s ease-in-out;
+}
+
+h2{
+    font-size: 30px;
+    color: var(--default-text);
+    text-align: center;
+}
+
+.input-group{
+    position: relative;
+    margin: 30px 0;
+    border-bottom: 2px solid #969595;
+    display: flex;
+    transition: .5s ease-in-out;
+}
+
+.input-group:hover{
+    border-color: #555555;
+}
+
+.input-group:focus{
+    border-color: var(--default-text);
+}
+
+.input-group label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 15px;
+    pointer-events: none;
+    color: rgb(170, 165, 165);
+    transition: .5s;
+}
+
+.input-group i{
+    margin-top: 10px;
+    font-size: 15px;
+    position: absolute;
+    right: 10px;
+}
+
+.input-group input{
+    width: 320px;
+    height: 30px;
+    font-size: 15px;
+    color: var(--default-text);
+    padding: 0 5px;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.input-group input:focus~label,
+.input-group input:valid~label{
+    top: -7px;
+    color: var(--default-text);
+}
+
+.input-group label.date-label{
+  top: -5px;
+    color: var(--default-text);
+}
+
+.button {
+  cursor: pointer;
+  position: relative;
+  border: none;
+  outline: none;
+  padding: 10px 24px;
+  font-size: 18px;
+  color: linear-gradient(90deg, #950a55 0%, #880094 100%);
+  border: 3px solid #950a55;
+  border-radius: 15px;
+  background: transparent;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  overflow: hidden;
+  width: 90%;
+  display: block;
+  margin: auto;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 120px;
+  height: 50px;
+  border-radius: inherit;
+  scale: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, #950a55 0%, #880094 100%);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.button:hover::before {
+  scale: 3;
+}
+
+.button:hover {
+  color: #fff;
+  scale: 1.1;
+  box-shadow: 0 0px 20px rgba(193, 163, 98,0.4);
+}
+  
+.button:active {
+    scale: 1;
+}
+  
+  
+  
+.switch-link{
+    font-size: 14px;
+    text-align: center;
+    margin: 15px 0;
+}
+.switch-link p{
+    color: var(--default-text);
+    font-size: 17px;
+}
+.switch-link p a{
+    color: var(--default-text);
+    text-decoration: none;
+    font-weight: 500;
+}
+.switch-link p a:hover{
+    text-decoration: underline;
+}

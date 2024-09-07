@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style/user.css">
+	<link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/popup.css">
+	<link rel="shortcut icon" type="image/jpg" href="imgs/logo.png"/>
+    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
+    <title>Welcome to the BrainBliTz Round 1!</title>
+</head>
+
+<body>
+    <div class="popup-container" id="popup">
+        <div class="popup-box">
+            <h2 id="popup-text">Welcome</h2>
+            <div class="links">
+              <a class="close-btn" id="popup-link">Ok</a>
+            </div>
+        </div>
+      </div>
+	  <section class="dots-container" id="loading">
+		<div class="dot"></div>
+		<div class="dot"></div>
+		<div class="dot"></div>
+		<div class="dot"></div>
+		<div class="dot"></div>
+	  </section>
+	  <header>
+		<div class="head">
+		  <img src="imgs/brain blitz logo.jpg" alt="">
+		  <h1>BRAIN-BLITZ<br><span>COMPETITION</span></h1>
+		</div>
+	  </header>
+      <div class="wrapper">
+        <div class="form-wrapper">
+          <form action="" id="login-form">
+            <h2>Login to Continue</h2>
+            <div class="input-group">
+                <input type="text" id="login-email" required>
+                <label for="">Email Address</label>
+                <i class="fas fa-envelope"></i>
+            </div>
+            <div class="input-group">
+                <input type="date" id="login-password" required>
+                <label for="" class="date-label">Date of birth</label>
+            </div>
+            <button type="submit" class="button">Login</button>
+            <div class="switch-link">
+                <p>Forgot Password? <a href="Forgot-Password.html">Change It</a></p>
+            </div>
+          </form>
+          
+        </div>
+        </div>
+<script type="module" src="js/login.js"></script>
+</body>
+
+</html>
