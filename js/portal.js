@@ -43,7 +43,7 @@ onAuthStateChanged(auth, (user) => {
     const submittedRef = doc(db, "round1", user.email);
   getDoc(submittedRef).then((doc) => {
     if (doc.exists) {
-      location.href = 'submitted.html';
+      // location.href = 'submitted.html';
     }
   });
   } else {
@@ -136,7 +136,7 @@ if (score < correctAnswers.length) {
       showPopup('Exam Submitted Successfully!');
       console.log(score);
       setTimeout(()=>{
-        location.href = 'submitted.html';
+        // location.href = 'submitted.html';
       },2000)
     })
     .catch((error) => {
